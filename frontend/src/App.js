@@ -391,44 +391,176 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
+      <section id="home" className="relative min-h-screen overflow-hidden">
+        {/* Background with professional gradient and subtle pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
           <img 
-            src="https://images.pexels.com/photos/5475750/pexels-photo-5475750.jpeg" 
-            alt="Data Analytics Background" 
-            className="w-full h-full object-cover opacity-30"
+            src="https://images.unsplash.com/photo-1700498466261-824cbd01974e" 
+            alt="Professional Background" 
+            className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-blue-900/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-blue-50/80 to-indigo-100/70"></div>
         </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            {t.hero.title}
-            <span className="text-golden-400 block">{t.hero.titleHighlight}</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            {t.hero.subtitle}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-golden-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-golden-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              {t.hero.cta1}
-            </button>
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="border-2 border-golden-400 text-golden-400 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-golden-400 hover:text-white transition-all duration-300"
-            >
-              {t.hero.cta2}
-            </button>
+
+        <div className="relative z-10 min-h-screen flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              
+              {/* Left Content */}
+              <div className="space-y-8">
+                {/* Company Badge */}
+                <div className="inline-flex items-center px-4 py-2 bg-golden-100 rounded-full text-golden-700 text-sm font-semibold">
+                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  Business Intelligence Líder en Puerto Rico
+                </div>
+
+                {/* Main Headline */}
+                <div className="space-y-4">
+                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
+                    {t.hero.title}
+                    <span className="block bg-gradient-to-r from-golden-500 to-golden-600 bg-clip-text text-transparent">
+                      {t.hero.titleHighlight}
+                    </span>
+                  </h1>
+                  <div className="w-24 h-1 bg-gradient-to-r from-golden-500 to-blue-600 rounded-full"></div>
+                </div>
+
+                {/* Subtitle */}
+                <p className="text-xl text-gray-600 leading-relaxed max-w-xl">
+                  {t.hero.subtitle}
+                </p>
+
+                {/* Trust Indicators */}
+                <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500">
+                  <div className="flex items-center">
+                    <svg className="w-5 h-5 text-golden-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.719c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    95% Satisfacción del Cliente
+                  </div>
+                  <div className="flex items-center">
+                    <svg className="w-5 h-5 text-golden-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    CMS Compliance Certified
+                  </div>
+                  <div className="flex items-center">
+                    <svg className="w-5 h-5 text-golden-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    50+ Proyectos Exitosos
+                  </div>
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button 
+                    onClick={() => scrollToSection('contact')}
+                    className="group bg-golden-500 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-golden-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  >
+                    <span className="flex items-center justify-center">
+                      {t.hero.cta1}
+                      <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('services')}
+                    className="group border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl text-lg font-semibold hover:border-golden-500 hover:text-golden-600 transition-all duration-300"
+                  >
+                    <span className="flex items-center justify-center">
+                      {t.hero.cta2}
+                      <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Right Content - Professional Dashboard Preview */}
+              <div className="relative lg:pl-8">
+                <div className="relative">
+                  {/* Main Dashboard Card */}
+                  <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
+                    <div className="flex items-center justify-between mb-6">
+                      <h3 className="text-lg font-semibold text-gray-900">Analytics Dashboard</h3>
+                      <div className="flex space-x-2">
+                        <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                        <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                        <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                      </div>
+                    </div>
+                    
+                    {/* Mock Chart */}
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-end h-32 border-b border-gray-100 pb-2">
+                        <div className="flex flex-col items-center">
+                          <div className="w-8 bg-golden-500 rounded-t" style={{height: '60%'}}></div>
+                          <span className="text-xs text-gray-500 mt-1">Ene</span>
+                        </div>
+                        <div className="flex flex-col items-center">
+                          <div className="w-8 bg-blue-500 rounded-t" style={{height: '80%'}}></div>
+                          <span className="text-xs text-gray-500 mt-1">Feb</span>
+                        </div>
+                        <div className="flex flex-col items-center">
+                          <div className="w-8 bg-golden-500 rounded-t" style={{height: '100%'}}></div>
+                          <span className="text-xs text-gray-500 mt-1">Mar</span>
+                        </div>
+                        <div className="flex flex-col items-center">
+                          <div className="w-8 bg-blue-500 rounded-t" style={{height: '75%'}}></div>
+                          <span className="text-xs text-gray-500 mt-1">Abr</span>
+                        </div>
+                        <div className="flex flex-col items-center">
+                          <div className="w-8 bg-golden-500 rounded-t" style={{height: '90%'}}></div>
+                          <span className="text-xs text-gray-500 mt-1">May</span>
+                        </div>
+                      </div>
+                      
+                      {/* Stats */}
+                      <div className="grid grid-cols-2 gap-4 pt-4">
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-golden-500">+127%</div>
+                          <div className="text-sm text-gray-500">Revenue Growth</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-blue-600">98.5%</div>
+                          <div className="text-sm text-gray-500">Accuracy Rate</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Floating Cards */}
+                  <div className="absolute -top-4 -right-4 bg-blue-600 text-white p-4 rounded-xl shadow-lg">
+                    <div className="text-sm font-medium">Medicare Analytics</div>
+                    <div className="text-2xl font-bold">24/7</div>
+                  </div>
+                  
+                  <div className="absolute -bottom-4 -left-4 bg-green-500 text-white p-4 rounded-xl shadow-lg">
+                    <div className="text-sm font-medium">Real-time Data</div>
+                    <div className="text-2xl font-bold">Live</div>
+                  </div>
+                </div>
+
+                {/* Background Decoration */}
+                <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-golden-100 to-blue-100 rounded-full opacity-30 blur-3xl"></div>
+              </div>
+            </div>
           </div>
         </div>
-        
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-golden-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <div className="flex flex-col items-center space-y-2">
+            <span className="text-sm text-gray-500">Scroll para explorar</span>
+            <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-golden-500 rounded-full mt-2 animate-bounce"></div>
+            </div>
+          </div>
         </div>
       </section>
 
