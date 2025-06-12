@@ -149,11 +149,13 @@ const translations = {
       contact: 'Contact'
     },
     hero: {
+      badge: 'Leading Business Intelligence in Puerto Rico',
       title: 'Transforming',
       titleHighlight: 'Data into Decisions',
       subtitle: 'Empower your business with advanced business intelligence. We convert complex information into actionable insights for your company\'s growth in Puerto Rico.',
       cta1: 'Free Consultation',
-      cta2: 'View Services'
+      cta2: 'View Services',
+      scrollText: 'Scroll to explore'
     },
     medicare: {
       title: 'Specialists in',
