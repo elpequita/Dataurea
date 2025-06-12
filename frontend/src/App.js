@@ -12,11 +12,13 @@ const translations = {
       contact: 'Contacto'
     },
     hero: {
+      badge: 'Business Intelligence Líder en Puerto Rico',
       title: 'Transformamos',
       titleHighlight: 'Datos en Decisiones',
       subtitle: 'Potencia tu negocio con inteligencia empresarial avanzada. Convertimos información compleja en insights accionables para el crecimiento de tu empresa en Puerto Rico.',
       cta1: 'Consulta Gratuita',
-      cta2: 'Ver Servicios'
+      cta2: 'Ver Servicios',
+      scrollText: 'Scroll para explorar'
     },
     medicare: {
       title: 'Especialistas en',
