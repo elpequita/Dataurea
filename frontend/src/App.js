@@ -85,26 +85,6 @@ const translations = {
       cta: 'Conoce Más',
       badge: 'Expertos en BI & Analytics'
     },
-    testimonials: {
-      title: 'Lo que dicen nuestros',
-      titleHighlight: 'clientes',
-      subtitle: 'Testimonios reales de empresas que han transformado su negocio con nuestras soluciones',
-      testimonial1: {
-        text: 'Datáurea transformó completamente nuestra forma de tomar decisiones. Los dashboards que crearon nos permiten ver el rendimiento de nuestras sucursales en tiempo real.',
-        name: 'María Rodríguez',
-        position: 'CEO, Retail Express PR'
-      },
-      testimonial2: {
-        text: 'La automatización de nuestros procesos financieros nos ha ahorrado más de 20 horas semanales. El equipo de Datáurea es excepcional en su servicio.',
-        name: 'Carlos López',
-        position: 'CFO, Constructora Borinquen'
-      },
-      testimonial3: {
-        text: 'Increíble cómo pudieron integrar todos nuestros sistemas. Ahora tenemos una vista única de toda nuestra operación hotelera.',
-        name: 'Ana Santana',
-        position: 'Directora, Hotel Caribe'
-      }
-    },
     contact: {
       title: 'Transformemos tu negocio',
       titleHighlight: 'juntos',
@@ -222,26 +202,7 @@ const translations = {
       cta: 'Learn More',
       badge: 'BI & Analytics Experts'
     },
-    testimonials: {
-      title: 'What our',
-      titleHighlight: 'clients say',
-      subtitle: 'Real testimonials from companies that have transformed their business with our solutions',
-      testimonial1: {
-        text: 'Datáurea completely transformed our decision-making process. The dashboards they created allow us to see our branches\' performance in real time.',
-        name: 'María Rodríguez',
-        position: 'CEO, Retail Express PR'
-      },
-      testimonial2: {
-        text: 'The automation of our financial processes has saved us more than 20 hours weekly. The Datáurea team is exceptional in their service.',
-        name: 'Carlos López',
-        position: 'CFO, Constructora Borinquen'
-      },
-      testimonial3: {
-        text: 'Amazing how they could integrate all our systems. Now we have a single view of our entire hotel operation.',
-        name: 'Ana Santana',
-        position: 'Director, Hotel Caribe'
-      }
-    },
+  
     contact: {
       title: 'Let\'s transform your business',
       titleHighlight: 'together',
@@ -773,46 +734,6 @@ function App() {
                 <div className="text-sm opacity-90">{t.about.badge}</div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              {t.testimonials.title} <span className="text-golden-500">{t.testimonials.titleHighlight}</span>
-            </h2>
-            <p className="text-xl text-gray-600">
-              {t.testimonials.subtitle}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[t.testimonials.testimonial1, t.testimonials.testimonial2, t.testimonials.testimonial3].map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-golden-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.719c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-6 italic">"{testimonial.text}"</p>
-                <div className="flex items-center">
-                  <div className={`w-12 h-12 ${index === 0 ? 'bg-golden-100' : index === 1 ? 'bg-blue-100' : 'bg-green-100'} rounded-full flex items-center justify-center mr-4`}>
-                    <span className={`${index === 0 ? 'text-golden-600' : index === 1 ? 'text-blue-600' : 'text-green-600'} font-bold`}>
-                      {testimonial.name.split(' ').map(n => n[0]).join('')}
-                    </span>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                    <div className="text-sm text-gray-600">{testimonial.position}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
