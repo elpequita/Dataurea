@@ -124,7 +124,7 @@ const translations = {
         company: 'Empresa',
         companyPlaceholder: 'Nombre de tu empresa',
         phone: 'Teléfono',
-        phonePlaceholder: '(787) 555-0123',
+        phonePlaceholder: '(787) 403-1552',
         message: '¿Cómo podemos ayudarte?',
         messagePlaceholder: 'Cuéntanos sobre tus necesidades de Business Intelligence...',
         submit: 'Enviar Solicitud'
@@ -261,7 +261,7 @@ const translations = {
         company: 'Company',
         companyPlaceholder: 'Your company name',
         phone: 'Phone',
-        phonePlaceholder: '(787) 555-0123',
+        phonePlaceholder: '(787) 403-1552',
         message: 'How can we help you?',
         messagePlaceholder: 'Tell us about your Business Intelligence needs...',
         submit: 'Send Request'
@@ -838,7 +838,7 @@ function App() {
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">{t.contact.info.phone}</div>
-                    <div className="text-gray-600">+1 (787) 555-0123</div>
+                    <div className="text-gray-600">+1 (787) 403-1552</div>
                   </div>
                 </div>
                 
@@ -850,7 +850,7 @@ function App() {
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">{t.contact.info.email}</div>
-                    <div className="text-gray-600">info@dataurea.com</div>
+                    <div className="text-gray-600">carlos.perez@dataurea.com</div>
                   </div>
                 </div>
                 
@@ -986,8 +986,8 @@ function App() {
             <div>
               <h4 className="font-semibold mb-4">{t.footer.contact}</h4>
               <div className="space-y-2 text-sm text-gray-400">
-                <div>+1 (787) 555-0123</div>
-                <div>info@dataurea.com</div>
+                <div>+1 (787) 403-1552</div>
+                <div>carlos.perez@dataurea.com</div>
                 <div>{t.contact.info.locationValue}</div>
               </div>
             </div>
