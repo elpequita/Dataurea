@@ -30,7 +30,71 @@ const translations = {
         "Análisis especializado para planes Medicare Advantage e información médica en Puerto Rico",
       description:
         "Nuestro equipo cuenta con experiencia específica en el análisis de datos de Medicare Advantage, ayudando a organizaciones de salud a optimizar sus programas y mejorar los resultados de los pacientes.",
+      features: [
+        {
+          title: "Análisis de Riesgo Médico",
+          description:
+            "Evaluamos y modelamos riesgos de salud para optimizar la gestión de miembros de Medicare Advantage.",
+          icon: "medical",
+        },
+        {
+          title: "Reportes CMS Compliance",
+          description:
+            "Generamos reportes automáticos que cumplen con las regulaciones de CMS para planes MA.",
+          icon: "document",
+        },
+        {
+          title: "Analytics de Utilización",
+          description:
+            "Analizamos patrones de utilización médica para identificar oportunidades de mejora.",
+          icon: "chart",
+        },
+        {
+          title: "Quality Measures Tracking",
+          description:
+            "Monitoreamos y optimizamos las métricas de calidad HEDIS y Star Ratings.",
+          icon: "star",
+        },
+      ],
       cta: "Consulta Especializada",
+    },
+    services: {
+      title: "Nuestros",
+      titleHighlight: "Servicios",
+      subtitle:
+        "Soluciones integrales de Business Intelligence diseñadas específicamente para empresas puertorriqueñas",
+      service1: {
+        title: "Análisis de Datos",
+        description:
+          "Convertimos datos complejos en información clara y accionable para impulsar la toma de decisiones estratégicas.",
+        features: [
+          "Dashboards interactivos",
+          "Reportes automatizados",
+          "Análisis predictivo",
+        ],
+      },
+      service2: {
+        title: "Automatización de Procesos",
+        description:
+          "Optimizamos tus operaciones mediante la automatización inteligente de procesos empresariales.",
+        features: [
+          "Flujos de trabajo automatizados",
+          "Integración de sistemas",
+          "Monitoreo continuo",
+        ],
+      },
+      service3: {
+        title: "Consultoría Estratégica",
+        description:
+          "Te acompañamos en la definición e implementación de estrategias basadas en datos para tu crecimiento.",
+        features: [
+          "Análisis de mercado",
+          "Planificación estratégica",
+          "Acompañamiento continuo",
+        ],
+      },
+      ctaTitle: "¿Listo para transformar tu negocio?",
+      ctaButton: "Comienza Ahora",
     },
     about: {
       title: "Sobre",
@@ -46,6 +110,7 @@ const translations = {
         { number: 5, suffix: "+", label: "Años de Experiencia" },
       ],
       cta: "Conoce Más",
+      badge: "Expertos en BI & Analytics",
     },
     contact: {
       title: "Transformemos tu negocio",
@@ -69,73 +134,8 @@ const translations = {
       copyright: "Todos los derechos reservados.",
     },
   },
-  en: {
-    nav: {
-      home: "Home",
-      services: "Services",
-      medicare: "Medicare Advantage",
-      about: "About",
-      contact: "Contact",
-    },
-    hero: {
-      badge: "Leading Business Intelligence in Puerto Rico",
-      title: "Transforming",
-      titleHighlight: "Data into Decisions",
-      subtitle:
-        "Empower your business with advanced business intelligence. We convert complex information into actionable insights for your company's growth in Puerto Rico.",
-      cta1: "Free Consultation",
-      cta2: "View Services",
-      scrollText: "Scroll to explore",
-    },
-    medicare: {
-      title: "Specialists in",
-      titleHighlight: "Medicare Advantage",
-      subtitle:
-        "Specialized analysis for Medicare Advantage plans and medical data in Puerto Rico.",
-      description:
-        "Our team has deep experience in Medicare Advantage data analytics — helping organizations improve performance and outcomes.",
-      cta: "Specialized Consultation",
-    },
-    about: {
-      title: "About",
-      titleHighlight: "Datáurea",
-      description1:
-        "We are a Puerto Rican company specialized in Business Intelligence and data analytics. Our team combines technical expertise with deep knowledge of the local market to offer solutions that drive business growth.",
-      description2:
-        "We help companies of all sizes make smarter decisions through the power of data. Every organization can achieve excellence with the right information at the right time.",
-      stats: [
-        { number: 50, suffix: "+", label: "Completed Projects" },
-        { number: 95, suffix: "%", label: "Client Satisfaction" },
-        { number: 24, suffix: "/7", label: "Technical Support" },
-        { number: 5, suffix: "+", label: "Years of Experience" },
-      ],
-      cta: "Learn More",
-    },
-    contact: {
-      title: "Let's transform your business",
-      titleHighlight: "together",
-      description:
-        "Ready to turn your data into your competitive advantage? Contact us for a free consultation and discover how we can help your organization grow.",
-      form: {
-        title: "Request your free consultation",
-        name: "Full Name",
-        email: "Email",
-        company: "Company",
-        phone: "Phone",
-        message: "How can we help you?",
-        submit: "Send Request",
-        success: "Thank you! Your request was successfully sent.",
-      },
-    },
-    footer: {
-      tagline:
-        "Transforming data into intelligent decisions for Puerto Rican businesses.",
-      copyright: "All rights reserved.",
-    },
-  },
 };
 
-/* ========= MAIN APP ========= */
 function App() {
   const [language, setLanguage] = useState("es");
   const [formData, setFormData] = useState({
@@ -187,7 +187,7 @@ function App() {
 
   return (
     <div className="App scroll-smooth font-sans text-gray-800">
-      {/* ===== NAVBAR ===== */}
+      {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
         <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
           <span className="text-2xl font-bold text-golden-600">DATÁUREA</span>
@@ -211,7 +211,7 @@ function App() {
         </div>
       </nav>
 
-      {/* ===== HERO ===== */}
+      {/* Hero */}
       <section
         id="home"
         className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 text-center px-4"
@@ -225,7 +225,7 @@ function App() {
             {t.hero.badge}
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-4">
-            {t.hero.title}{" "}
+            {t.hero.title} {" "}
             <span className="bg-gradient-to-r from-golden-500 to-golden-700 text-transparent bg-clip-text">
               {t.hero.titleHighlight}
             </span>
@@ -261,194 +261,121 @@ function App() {
         </motion.div>
       </section>
 
-      {/* ===== ABOUT ===== */}
-      <section id="about" className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto text-center px-6">
-          <motion.h2
-            className="text-4xl font-bold mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            {t.about.title}{" "}
-            <span className="text-golden-600">{t.about.titleHighlight}</span>
-          </motion.h2>
-          <p className="text-lg text-gray-600 mb-4">{t.about.description1}</p>
-          <p className="text-lg text-gray-600 mb-12">{t.about.description2}</p>
+      {/* Medicare Section */}
+      <section id="medicare" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              {t.medicare.title} <span className="text-golden-500">{t.medicare.titleHighlight}</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              {t.medicare.subtitle}
+            </p>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+              {t.medicare.description}
+            </p>
+          </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {t.about.stats.map((s, i) => (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1698306642516-9841228dcff3"
+                alt="Healthcare Analytics"
+                className="rounded-2xl shadow-xl w-full h-96 object-cover"
+              />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {t.medicare.features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
+                  <p className="text-gray-600 text-sm">{feature.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center">
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg"
+            >
+              {t.medicare.cta}
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              {t.services.title} <span className="text-golden-500">{t.services.titleHighlight}</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {t.services.subtitle}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {[t.services.service1, t.services.service2, t.services.service3].map((s, i) => (
               <motion.div
                 key={i}
-                className="p-4"
-                initial={{ opacity: 0, y: 20 }}
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.15 }}
               >
-                <h3 className="text-4xl font-bold text-golden-600">
-                  <CountUp end={s.number} duration={2} /> {s.suffix}
-                </h3>
-                <p className="text-gray-600 mt-2">{s.label}</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">{s.title}</h3>
+                <p className="text-gray-600 mb-6">{s.description}</p>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  {s.features.map((f, j) => (
+                    <li key={j} className="flex items-center">
+                      <svg
+                        className="w-4 h-4 text-golden-500 mr-2"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* ===== SERVICES ===== */}
-      <section id="services" className="py-20 bg-gray-50 border-t">
-        <div className="max-w-6xl mx-auto text-center px-6">
-          <motion.h2
-            className="text-4xl font-bold mb-8 text-golden-600"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-          >
-            {language === "es" ? "Nuestros Servicios" : "Our Services"}
-          </motion.h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {["Analytics", "Automation", "Consulting"].map((x, i) => (
-              <motion.div
-                key={i}
-                className="bg-white p-8 rounded-xl shadow hover:shadow-xl transition transform hover:-translate-y-2"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.2 }}
-              >
-                <h3 className="text-2xl font-semibold text-golden-600 mb-3">
-                  {
-                    {
-                      0:
-                        language === "es"
-                          ? "Análisis de Datos"
-                          : "Data Analytics",
-                      1:
-                        language === "es"
-                          ? "Automatización de Procesos"
-                          : "Process Automation",
-                      2:
-                        language === "es"
-                          ? "Consultoría Estratégica"
-                          : "Strategic Consulting",
-                    }[i]
-                  }
-                </h3>
-                <p className="text-gray-600">
-                  {
-                    {
-                      0: language === "es"
-                        ? "Convertimos datos en decisiones estratégicas con dashboards y reportes automatizados."
-                        : "Turning data into strategic insights through dashboards and automated reports.",
-                      1: language === "es"
-                        ? "Automatizamos flujos de trabajo e integramos sistemas de forma segura."
-                        : "Automating workflows and integrating systems securely.",
-                      2: language === "es"
-                        ? "Te guiamos en la definición de estrategias basadas en datos."
-                        : "Guiding your organization in defining data-driven strategies.",
-                    }[i]
-                  }
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== CONTACT ===== */}
-      <section id="contact" className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 px-6">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <h2 className="text-4xl font-bold mb-4">
-              {t.contact.title}{" "}
-              <span className="text-golden-600">{t.contact.titleHighlight}</span>
-            </h2>
-            <p className="text-gray-600 mb-6">{t.contact.description}</p>
-            <ul className="space-y-2 text-gray-700">
-              <li>📞 +1 (787) 403-1552</li>
-              <li>✉️ info@dataurea.com</li>
-              <li>📍 San Juan, Puerto Rico</li>
-            </ul>
-          </motion.div>
-
-          <motion.div
-            className="bg-gray-50 rounded-xl p-8 shadow"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <h3 className="text-2xl font-semibold text-golden-600 mb-6">
-              {t.contact.form.title}
-            </h3>
-            {success ? (
-              <motion.div
-                className="bg-golden-100 text-golden-700 p-5 rounded-lg text-center font-medium"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4 }}
-              >
-                {t.contact.form.success}
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {["name", "email", "company", "phone"].map((f) => (
-                  <div key={f}>
-                    <label className="block text-sm font-medium mb-1">
-                      {t.contact.form[f]}
-                    </label>
-                    <input
-                      name={f}
-                      type={f === "email" ? "email" : "text"}
-                      required={["name", "email"].includes(f)}
-                      value={formData[f]}
-                      onChange={handleChange}
-                      className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-golden-500 outline-none"
-                    />
-                  </div>
-                ))}
-                <div>
-                  <label className="block text-sm font-medium mb-1">
-                    {t.contact.form.message}
-                  </label>
-                  <textarea
-                    name="message"
-                    rows="4"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-golden-500"
-                    required
-                  ></textarea>
-                </div>
+          <div className="relative">
+            <img
+              src="https://images.unsplash.com/photo-1717452716963-bc51037bd958"
+              alt="Business Growth"
+              className="w-full h-64 object-cover rounded-2xl shadow-lg"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-golden-900/80 to-blue-900/60 rounded-2xl flex items-center justify-center">
+              <div className="text-center text-white">
+                <h3 className="text-3xl font-bold mb-4">{t.services.ctaTitle}</h3>
                 <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`w-full bg-golden-500 text-white py-3 rounded-lg font-semibold hover:bg-golden-600 transition ${
-                    isSubmitting && "opacity-50 cursor-not-allowed"
-                  }`}
+                  onClick={() => scrollToSection("contact")}
+                  className="bg-golden-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-golden-600 transition-colors"
                 >
-                  {isSubmitting
-                    ? language === "es"
-                      ? "Enviando..."
-                      : "Sending..."
-                    : t.contact.form.submit}
+                  {t.services.ctaButton}
                 </button>
-              </form>
-            )}
-          </motion.div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ===== FOOTER ===== */}
-      <footer className="bg-gray-900 text-gray-300 py-10 text-center">
-        <p className="mb-2">{t.footer.tagline}</p>
-        <p className="text-sm opacity-75">
-          © {new Date().getFullYear()} Datáurea — {t.footer.copyright}
-        </p>
-      </footer>
-    </div>
-  );
-}
-
-export default App;
+      {/* About Section */}
+      <section id="about" className="py-20
