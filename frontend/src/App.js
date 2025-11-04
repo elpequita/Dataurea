@@ -649,82 +649,85 @@ function App() {
             <h3 className="text-2xl font-semibold text-gray-900 mb-6">
               {t.contact.form.title}
             </h3>
+<form
+  onSubmit={async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const payload = Object.fromEntries(formData.entries());
+    try {
+      const res = await fetch("https://formspree.io/f/mblpvwze", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) {
+        e.target.reset();
+        const box = document.getElementById("success-box");
+        box.classList.remove("hidden");
+        setTimeout(() => box.classList.add("hidden"), 4000);
+      } else {
+        alert("There was an issue sending your message. Please try again.");
+      }
+    } catch (err) {
+      console.error("Form submission error:", err);
+      alert("Unable to send the form. Please check your connection.");
+    }
+  }}
+  className="space-y-4"
+>
+  <div className="grid md:grid-cols-2 gap-4">
+    <input
+      type="text"
+      name="name"
+      placeholder={t.contact.form.name}
+      required
+      className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-golden-500 focus:ring-1 focus:ring-golden-500 outline-none"
+    />
+    <input
+      type="email"
+      name="email"
+      placeholder={t.contact.form.email}
+      required
+      className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-golden-500 focus:ring-1 focus:ring-golden-500 outline-none"
+    />
+  </div>
+  <input
+    type="text"
+    name="company"
+    placeholder={t.contact.form.company}
+    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-golden-500 focus:ring-1 focus:ring-golden-500 outline-none"
+  />
+  <input
+    type="text"
+    name="phone"
+    placeholder={t.contact.form.phone}
+    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-golden-500 focus:ring-1 focus:ring-golden-500 outline-none"
+  />
+  <textarea
+    name="message"
+    rows="4"
+    placeholder={t.contact.form.message}
+    required
+    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-golden-500 focus:ring-1 focus:ring-golden-500 outline-none resize-none"
+  ></textarea>
 
-            <form
-              onSubmit={async (e) => {
-                e.preventDefault();
-                const formData = new FormData(e.target);
-                const payload = Object.fromEntries(formData.entries());
-                try {
-                  const res = await fetch("https://formspree.io/f/xayvwjln", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payload),
-                  });
-                  if (res.ok) {
-                    e.target.reset();
-                    const box = document.getElementById("success-box");
-                    box.classList.remove("hidden");
-                    setTimeout(() => box.classList.add("hidden"), 4000);
-                  }
-                } catch (err) {
-                  console.error(err);
-                }
-              }}
-              className="space-y-4"
-            >
-              <div className="grid md:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder={t.contact.form.name}
-                  required
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-golden-500 focus:ring-1 focus:ring-golden-500 outline-none"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder={t.contact.form.email}
-                  required
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-golden-500 focus:ring-1 focus:ring-golden-500 outline-none"
-                />
-              </div>
-              <input
-                type="text"
-                name="company"
-                placeholder={t.contact.form.company}
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-golden-500 focus:ring-1 focus:ring-golden-500 outline-none"
-              />
-              <input
-                type="text"
-                name="phone"
-                placeholder={t.contact.form.phone}
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-golden-500 focus:ring-1 focus:ring-golden-500 outline-none"
-              />
-              <textarea
-                name="message"
-                rows="4"
-                placeholder={t.contact.form.message}
-                required
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-golden-500 focus:ring-1 focus:ring-golden-500 outline-none resize-none"
-              ></textarea>
+  <motion.button
+    whileHover={{ scale: 1.03 }}
+    whileTap={{ scale: 0.97 }}
+    type="submit"
+    className="w-full bg-golden-600 text-white py-3 rounded-lg font-semibold hover:bg-golden-700 transition"
+  >
+    {t.contact.form.submit}
+  </motion.button>
 
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                type="submit"
-                className="w-full bg-golden-600 text-white py-3 rounded-lg font-semibold hover:bg-golden-700 transition"
-              >
-                {t.contact.form.submit}
-              </motion.button>
+  <div
+    id="success-box"
+    className="hidden mt-4 p-4 bg-green-100 border border-green-300 text-green-700 rounded-lg text-center font-medium animate-fadeIn"
+  >
+    {t.contact.form.success}
+  </div>
+</form>
 
-              <div
-                id="success-box"
-                className="hidden mt-4 p-4 bg-green-100 border border-green-300 text-green-700 rounded-lg text-center font-medium animate-fadeIn"
-              >
-                {t.contact.form.success}
-              </div>
-            </form>
           </motion.div>
         </div>
       </section>
