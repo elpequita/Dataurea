@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <meta name="theme-color" content="#2E2E2E" />
+
     <title>Visual Strategy Consulting for Smarter Decisions | Dataúrea</title>
 
     <!-- Primary SEO -->
@@ -14,28 +14,6 @@
       name="description"
       content="Dataúrea turns complex data into clear, executive-ready insights. Analytics, smart reporting, and BI solutions based in Puerto Rico—available across industries."
     />
-<!-- ✅ Dataúrea Brand Icons -->
-<link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="96x96" href="%PUBLIC_URL%/favicon-96x96.png" />
-<link rel="icon" type="image/png" sizes="192x192" href="%PUBLIC_URL%/web-app-manifest-192x192.png" />
-<link rel="icon" type="image/png" sizes="512x512" href="%PUBLIC_URL%/web-app-manifest-512x512.png" />
-<link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg" />
-<link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
-<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" type="image/x-icon" />
-<meta name="theme-color" content="#2d2e82" />
-
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Dataúrea",
-  "url": "https://www.dataurea.com/",
-  "logo": "https://www.dataurea.com/web-app-manifest-512x512.png"
-}
-</script>
-
-
-    
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.dataurea.com/" />
 
@@ -50,7 +28,7 @@
     <meta property="og:title" content="Visual Strategy Consulting for Smarter Decisions | Dataúrea" />
     <meta property="og:description" content="Analytics & smart reporting that accelerate decisions. Puerto Rico-based, cross-industry BI experts." />
     <meta property="og:url" content="https://www.dataurea.com/" />
-    <!-- Replace with an actual social preview image in /public -->
+    <!-- Replace this image with a real social preview placed in /public -->
     <meta property="og:image" content="%PUBLIC_URL%/social-card.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -61,21 +39,25 @@
     <meta name="twitter:description" content="Analytics & smart reporting that accelerate decisions. Puerto Rico-based, cross-industry BI experts." />
     <meta name="twitter:image" content="%PUBLIC_URL%/social-card.jpg" />
 
-    <!-- Icons / PWA -->
+    <!-- ✅ Dataúrea Brand Icons (only files you have) -->
     <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="96x96" href="%PUBLIC_URL%/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="%PUBLIC_URL%/web-app-manifest-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="%PUBLIC_URL%/web-app-manifest-512x512.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
+    <meta name="theme-color" content="#2d2e82" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <!-- Organization JSON-LD (update logo if needed) -->
+    <!-- Organization JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Dataúrea",
       "url": "https://www.dataurea.com/",
-      "logo": "https://www.dataurea.com/logo512.png",
+      "logo": "https://www.dataurea.com/web-app-manifest-512x512.png",
       "sameAs": [
         "https://www.linkedin.com/company/dataurea"
       ],
@@ -89,29 +71,31 @@
     }
     </script>
   </head>
+
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-    <!-- PostHog (deferred + DNT check).
-         If you have a cookie banner, call posthog.init() only after consent. -->
+    <!-- PostHog (deferred + Do-Not-Track check).
+         If you use a cookie banner, call posthog.init() only after consent. -->
     <script defer>
       (function(){
-        if (navigator.doNotTrack === '1') return;
-        (function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&((t=t[o[0]]),e=o[1]),(t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))})}
-        (p=t.createElement("script")).type="text/javascript",
-        p.crossOrigin="anonymous",p.async=!0,
-        p.src=(s.api_host.replace(".i.posthog.com","-assets.i.posthog.com"))+"/static/array.js",
-        (r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);
-        var u=e;void 0!==a?(u=e[a]=[]):a="posthog",u.people=u.people||[],
-        u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},
-        u.people.toString=function(){return u.toString(1)+".people (stub)"};
-        o="init capture identify group reset on onFeatureFlags".split(" ");
-        for(n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])})(document,window.posthog||[]);
-        posthog.init("phc_yJW1VjHGGwmCbbrtczfqqNxgBDbhlhOWcdzcIJEOTFE",{
-          api_host:"https://us.i.posthog.com",
-          person_profiles:"identified_only"
-        });
+        try {
+          if (navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
+          (function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&((t=t[o[0]]),e=o[1]),(t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))})}
+          (p=t.createElement("script")).type="text/javascript",
+          p.crossOrigin="anonymous",p.async=!0,
+          p.src=(s.api_host.replace(".i.posthog.com","-assets.i.posthog.com"))+"/static/array.js",
+          (r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);
+          var u=e;void 0!==a?(u=e[a]=[]):a="posthog",u.people=u.people||[],
+          u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},
+          u.people.toString=function(){return u.toString(1)+".people (stub)"};o="init capture identify group reset on onFeatureFlags".split(" ");
+          for(n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])})(document,window.posthog||[]);
+          posthog.init("phc_yJW1VjHGGwmCbbrtczfqqNxgBDbhlhOWcdzcIJEOTFE",{
+            api_host:"https://us.i.posthog.com",
+            person_profiles:"identified_only"
+          });
+        } catch(e) {}
       })();
     </script>
   </body>
