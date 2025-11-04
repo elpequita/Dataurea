@@ -22,40 +22,7 @@ const translations = {
       cta2: "Ver Servicios",
       scrollText: "Desliza para explorar",
     },
-    medicare: {
-      title: "Especialistas en",
-      titleHighlight: "Medicare Advantage",
-      subtitle:
-        "Análisis especializado para planes Medicare Advantage e información médica en Puerto Rico",
-      description:
-        "Nuestro equipo cuenta con experiencia específica en el análisis de datos de Medicare Advantage, ayudando a organizaciones de salud a optimizar sus programas y mejorar los resultados de los pacientes.",
-      features: [
-        {
-          title: "Análisis de Riesgo Médico",
-          description:
-            "Evaluamos y modelamos riesgos de salud para optimizar la gestión de miembros de Medicare Advantage.",
-          icon: "medical",
-        },
-        {
-          title: "Reportes CMS Compliance",
-          description:
-            "Generamos reportes automáticos que cumplen con las regulaciones de CMS para planes MA.",
-          icon: "document",
-        },
-        {
-          title: "Analytics de Utilización",
-          description:
-            "Analizamos patrones de utilización médica para identificar oportunidades de mejora.",
-          icon: "chart",
-        },
-        {
-          title: "Quality Measures Tracking",
-          description:
-            "Monitoreamos y optimizamos las métricas de calidad HEDIS y Star Ratings.",
-          icon: "star",
-        },
-      ],
-      cta: "Consulta Especializada",
+      
     },
     services: {
       title: "Nuestros",
@@ -151,40 +118,7 @@ const translations = {
       cta2: "View Services",
       scrollText: "Scroll to explore",
     },
-    medicare: {
-      title: "Specialists in",
-      titleHighlight: "Medicare Advantage",
-      subtitle:
-        "Specialized analysis for Medicare Advantage plans in Puerto Rico",
-      description:
-        "Our team has experience in Medicare Advantage data analysis, helping health organizations optimize programs and improve patient outcomes.",
-      features: [
-        {
-          title: "Medical Risk Analysis",
-          description:
-            "We model health risks to optimize Medicare Advantage member management.",
-          icon: "medical",
-        },
-        {
-          title: "CMS Compliance Reports",
-          description:
-            "We generate automatic reports that comply with CMS regulations for MA plans.",
-          icon: "document",
-        },
-        {
-          title: "Utilization Analytics",
-          description:
-            "We analyze utilization patterns to identify improvement opportunities.",
-          icon: "chart",
-        },
-        {
-          title: "Quality Measures Tracking",
-          description:
-            "We monitor and optimize HEDIS metrics and Star Ratings.",
-          icon: "star",
-        },
-      ],
-      cta: "Specialized Consultation",
+   
     },
     services: {
       title: "Our",
@@ -574,10 +508,10 @@ function App() {
                 📍 <span>San Juan, Puerto Rico</span>
               </div>
               <div className="flex items-center gap-3 text-gray-700">
-                📞 <span>(787) 555-1234</span>
+                📞 <span>(787) 403-1552</span>
               </div>
               <div className="flex items-center gap-3 text-gray-700">
-                ✉️ <span>contacto@dataurea.com</span>
+                ✉️ <span>carlos.perez@dataurea.com</span>
               </div>
             </div>
           </motion.div>
