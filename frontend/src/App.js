@@ -660,36 +660,59 @@ function App() {
             {/* Form (static) */}
             <div className="bg-gray-50 rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">{t.contact.form.title}</h3>
-              <form className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.contact.form.name}</label>
-                  <input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent" placeholder={t.contact.form.namePlaceholder}/>
-                </div>
+<form
+  className="space-y-6"
+  action="https://formspree.io/f/mblpvwze"
+  method="POST"
+>
+  <input type="text" name="_gotcha" className="hidden" tabIndex="-1" autoComplete="off" />
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.contact.form.email}</label>
-                  <input type="email" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent" placeholder={t.contact.form.emailPlaceholder}/>
-                </div>
+  <input
+    type="text"
+    name="name"
+    required
+    placeholder={t.contact.form.namePlaceholder}
+    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent"
+  />
+  <input
+    type="email"
+    name="email"
+    required
+    placeholder={t.contact.form.emailPlaceholder}
+    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent"
+  />
+  <input
+    type="text"
+    name="company"
+    placeholder={t.contact.form.companyPlaceholder}
+    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent"
+  />
+  <input
+    type="tel"
+    name="phone"
+    placeholder={t.contact.form.phonePlaceholder}
+    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent"
+  />
+  <textarea
+    rows="4"
+    name="message"
+    required
+    placeholder={t.contact.form.messagePlaceholder}
+    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent"
+  ></textarea>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.contact.form.company}</label>
-                  <input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent" placeholder={t.contact.form.companyPlaceholder}/>
-                </div>
+  <input type="hidden" name="_subject" value="New consultation request from dataurea.com" />
+  <input type="hidden" name="_next" value="https://www.dataurea.com/?sent=1" />
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.contact.form.phone}</label>
-                  <input type="tel" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent" placeholder={t.contact.form.phonePlaceholder}/>
-                </div>
+  <button
+    type="submit"
+    className="w-full bg-golden-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-golden-600 transition-colors"
+  >
+    {t.contact.form.submit}
+  </button>
+</form>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.contact.form.message}</label>
-                  <textarea rows="4" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent" placeholder={t.contact.form.messagePlaceholder}></textarea>
-                </div>
-
-                <button type="submit" className="w-full bg-golden-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-golden-600 transition-colors">
-                  {t.contact.form.submit}
-                </button>
-              </form>
+          
             </div>
           </div>
         </div>
