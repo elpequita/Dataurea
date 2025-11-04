@@ -8,7 +8,6 @@ const translations = {
     nav: {
       home: "Inicio",
       services: "Servicios",
-      medicare: "Medicare Advantage",
       about: "Nosotros",
       contact: "Contacto",
     },
@@ -20,9 +19,6 @@ const translations = {
         "Potencia tu negocio con inteligencia empresarial avanzada. Convertimos información compleja en insights accionables para el crecimiento de tu empresa en Puerto Rico.",
       cta1: "Consulta Gratuita",
       cta2: "Ver Servicios",
-      scrollText: "Desliza para explorar",
-    },
-      
     },
     services: {
       title: "Nuestros",
@@ -66,9 +62,9 @@ const translations = {
       title: "Sobre",
       titleHighlight: "Datáurea",
       description1:
-        "Somos una empresa puertorriqueña especializada en Business Intelligence y análisis de datos. Nuestro equipo combina experiencia técnica con conocimiento del mercado local para ofrecer soluciones que realmente impulsan el crecimiento.",
+        "Somos una empresa puertorriqueña especializada en Business Intelligence y análisis de datos.",
       description2:
-        "Ayudamos a empresas a tomar decisiones más inteligentes mediante el poder de sus datos. Cada organización tiene el potencial de alcanzar la excelencia con la información correcta en el momento preciso.",
+        "Ayudamos a empresas a tomar decisiones más inteligentes mediante el poder de sus datos.",
       stats: [
         { number: 50, suffix: "+", label: "Proyectos Completados" },
         { number: 95, suffix: "%", label: "Satisfacción del Cliente" },
@@ -104,7 +100,6 @@ const translations = {
     nav: {
       home: "Home",
       services: "Services",
-      medicare: "Medicare Advantage",
       about: "About",
       contact: "Contact",
     },
@@ -116,9 +111,6 @@ const translations = {
         "Empower your business with advanced BI. We convert complex information into actionable insights for growth.",
       cta1: "Free Consultation",
       cta2: "View Services",
-      scrollText: "Scroll to explore",
-    },
-   
     },
     services: {
       title: "Our",
@@ -287,107 +279,62 @@ function App() {
           </motion.div>
         </div>
       </section>
-    {/* Medicare Section */}
+      {/* Services Section */}
       <section
-        id="medicare"
-        className="py-20 bg-gradient-to-br from-gray-50 to-golden-50"
+        id="services"
+        className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100"
       >
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-4xl font-bold text-gray-900 mb-4"
           >
-            {t.medicare.title}{" "}
+            {t.services.title}{" "}
             <span className="text-golden-600">
-              {t.medicare.titleHighlight}
+              {t.services.titleHighlight}
             </span>
           </motion.h2>
-
-          <p className="text-gray-600 max-w-3xl mx-auto mb-12">
-            {t.medicare.description}
-          </p>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {t.medicare.features.map((feature, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition"
-              >
-                <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-golden-100 rounded-full text-golden-600">
-                  {feature.icon === "medical" && "🩺"}
-                  {feature.icon === "document" && "📄"}
-                  {feature.icon === "chart" && "📊"}
-                  {feature.icon === "star" && "⭐"}
-                </div>
-                <h3 className="font-semibold text-lg text-gray-800 mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-gray-600">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="mt-12">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              onClick={() => scrollToSection("contact")}
-              className="bg-golden-600 hover:bg-golden-700 text-white px-8 py-3 rounded-lg font-semibold shadow-lg transition"
-            >
-              {t.medicare.cta}
-            </motion.button>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="text-center mb-16"
+            transition={{ duration: 0.8 }}
+            className="text-gray-600 max-w-3xl mx-auto mb-12"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              {t.services.title}{" "}
-              <span className="text-golden-600">
-                {t.services.titleHighlight}
-              </span>
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              {t.services.subtitle}
-            </p>
-          </motion.div>
+            {t.services.subtitle}
+          </motion.p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             {[t.services.service1, t.services.service2, t.services.service3].map(
-              (service, i) => (
+              (srv, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.2 }}
-                  className="bg-gray-50 p-8 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                  whileHover={{ y: -8 }}
+                  className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg border border-gray-100 text-left"
                 >
-                  <div className="w-14 h-14 mb-5 bg-golden-100 text-golden-600 rounded-full flex items-center justify-center text-xl">
-                    {i === 0 ? "📈" : i === 1 ? "⚙️" : "💡"}
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                    {service.title}
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+                    {srv.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                  <ul className="text-sm text-gray-500 space-y-1">
-                    {service.features.map((f, j) => (
-                      <li key={j}>✔ {f}</li>
+                  <p className="text-gray-600 mb-4">{srv.description}</p>
+                  <ul className="space-y-2 text-gray-700">
+                    {srv.features.map((f, j) => (
+                      <li key={j} className="flex items-center">
+                        <svg
+                          className="w-4 h-4 text-golden-600 mr-2"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        {f}
+                      </li>
                     ))}
                   </ul>
                 </motion.div>
@@ -396,71 +343,73 @@ function App() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="mt-20 text-center bg-golden-50 py-12 rounded-xl shadow-inner"
+            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.6 }}
+            className="relative rounded-2xl overflow-hidden shadow-xl"
           >
-            <h3 className="text-2xl font-semibold mb-6 text-gray-800">
-              {t.services.ctaTitle}
-            </h3>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="bg-golden-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-golden-700 transition"
-            >
-              {t.services.ctaButton}
-            </button>
+            <img
+              src="https://images.unsplash.com/photo-1717452716963-bc51037bd958"
+              alt="Business Growth"
+              className="w-full h-64 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-golden-800/70 to-gray-900/70 flex flex-col justify-center items-center text-white">
+              <h3 className="text-3xl font-semibold mb-4">
+                {t.services.ctaTitle}
+              </h3>
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="bg-golden-600 hover:bg-golden-700 text-white px-8 py-3 rounded-lg font-semibold transition"
+              >
+                {t.services.ctaButton}
+              </button>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gray-50">
+      <section
+        id="about"
+        className="py-24 bg-white border-t border-gray-100"
+      >
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
           >
-            <h2 className="text-4xl font-bold text-gray-900">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
               {t.about.title}{" "}
               <span className="text-golden-600">{t.about.titleHighlight}</span>
             </h2>
-            <p className="text-gray-600">{t.about.description1}</p>
-            <p className="text-gray-600">{t.about.description2}</p>
+            <p className="text-gray-600 mb-4">{t.about.description1}</p>
+            <p className="text-gray-600 mb-8">{t.about.description2}</p>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-6 mb-8">
               {t.about.stats.map((stat, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="text-center bg-white shadow-md p-6 rounded-xl"
-                >
-                  <div className="text-3xl font-bold text-golden-600">
-                    <CountUp
-                      end={stat.number}
-                      suffix={stat.suffix}
-                      duration={2.5}
-                    />
-                  </div>
-                  <p className="text-gray-600 text-sm">{stat.label}</p>
-                </motion.div>
+                <div key={i} className="text-center">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: i * 0.1 }}
+                    viewport={{ once: true }}
+                    className="text-4xl font-bold text-golden-600"
+                  >
+                    <CountUp end={stat.number} duration={2} />{stat.suffix}
+                  </motion.div>
+                  <div className="text-gray-700">{stat.label}</div>
+                </div>
               ))}
             </div>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
+            <button
               onClick={() => scrollToSection("contact")}
-              className="bg-golden-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-golden-700 transition"
+              className="bg-golden-600 hover:bg-golden-700 text-white px-8 py-3 rounded-lg font-semibold transition"
             >
               {t.about.cta}
-            </motion.button>
+            </button>
           </motion.div>
 
           <motion.div
@@ -473,7 +422,7 @@ function App() {
             <img
               src="https://images.unsplash.com/photo-1573497701175-00c200fd57f0"
               alt="Professional Team"
-              className="rounded-2xl shadow-2xl w-full h-96 object-cover"
+              className="rounded-2xl shadow-xl w-full h-96 object-cover"
             />
             <div className="absolute -bottom-6 -right-6 bg-golden-600 text-white p-6 rounded-2xl shadow-lg">
               <div className="text-2xl font-bold mb-1">
@@ -491,7 +440,7 @@ function App() {
         className="py-24 bg-gradient-to-br from-white via-gray-50 to-golden-50"
       >
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-start">
-          {/* Contact text */}
+          {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -503,20 +452,67 @@ function App() {
               <span className="text-golden-600">{t.contact.titleHighlight}</span>
             </h2>
             <p className="text-gray-600 mb-10">{t.contact.description}</p>
-            <div className="space-y-4">
-              <div className="flex items-center gap-3 text-gray-700">
-                📍 <span>San Juan, Puerto Rico</span>
+
+            <div className="space-y-4 text-gray-700">
+              <div className="flex items-center gap-3">
+                <svg
+                  className="w-6 h-6 text-golden-600"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+                <span>San Juan, Puerto Rico</span>
               </div>
-              <div className="flex items-center gap-3 text-gray-700">
-                📞 <span>(787) 403-1552</span>
+
+              <div className="flex items-center gap-3">
+                <svg
+                  className="w-6 h-6 text-golden-600"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2H18C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+                <span>787 403 1552</span>
               </div>
-              <div className="flex items-center gap-3 text-gray-700">
-                ✉️ <span>carlos.perez@dataurea.com</span>
+
+              <div className="flex items-center gap-3">
+                <svg
+                  className="w-6 h-6 text-golden-600"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                <span>carlos.perez@dataurea.com</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Form */}
+          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -541,12 +537,9 @@ function App() {
                   });
                   if (res.ok) {
                     e.target.reset();
-                    const successBox = document.getElementById("success-box");
-                    successBox.classList.remove("hidden");
-                    setTimeout(
-                      () => successBox.classList.add("hidden"),
-                      4000
-                    );
+                    const box = document.getElementById("success-box");
+                    box.classList.remove("hidden");
+                    setTimeout(() => box.classList.add("hidden"), 4000);
                   }
                 } catch (err) {
                   console.error(err);
@@ -599,7 +592,6 @@ function App() {
                 {t.contact.form.submit}
               </motion.button>
 
-              {/* Success box */}
               <div
                 id="success-box"
                 className="hidden mt-4 p-4 bg-green-100 border border-green-300 text-green-700 rounded-lg text-center font-medium animate-fadeIn"
