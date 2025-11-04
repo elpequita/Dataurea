@@ -247,6 +247,23 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [language, setLanguage] = useState('es');
   const t = translations[language];
+  // ✅ Success Toast state and effect
+  const [showToast, setShowToast] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('sent') === '1') {
+      setShowToast(true);
+      // Remove ?sent=1 from URL
+      if (window.history.replaceState) {
+        const cleanUrl = window.location.pathname + window.location.hash;
+        window.history.replaceState({}, document.title, cleanUrl);
+      }
+      // Auto-hide after 5s
+      const timer = setTimeout(() => setShowToast(false), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleLanguage = () => setLanguage(language === 'es' ? 'en' : 'es');
@@ -783,6 +800,32 @@ function App() {
           </div>
         </div>
       </footer>
+         {/* ✅ Success Toast */}
+{showToast && (
+  <div className="fixed bottom-6 right-6 z-[9999]">
+    <div className="flex items-start gap-3 rounded-xl bg-white shadow-2xl border border-green-200 p-4 w-[320px]">
+      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-100">
+        <svg className="h-5 w-5 text-green-600" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0L3.293 10.12a1 1 0 111.414-1.414L8 12l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+        </svg>
+      </div>
+      <div className="flex-1">
+        <p className="font-semibold text-gray-900">Message sent</p>
+        <p className="text-sm text-gray-600">Thanks! We’ll get back to you shortly.</p>
+      </div>
+      <button
+        onClick={() => setShowToast(false)}
+        aria-label="Close"
+        className="text-gray-400 hover:text-gray-600"
+      >
+        <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M10 8.586l4.95-4.95 1.414 1.415L11.414 10l4.95 4.95-1.414 1.414L10 11.414l-4.95 4.95-1.414-1.415L8.586 10 3.636 5.05l1.414-1.414L10 8.586z" clipRule="evenodd" />
+        </svg>
+      </button>
+    </div>
+  </div>
+)}
+            
     </div>
   );
 }
