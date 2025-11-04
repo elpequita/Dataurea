@@ -1,218 +1,231 @@
-@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
-import React, { useState, useEffect } from 'react';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import { motion } from "framer-motion";
+import { FaMoon, FaSun, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import "./App.css";
 
-/* =========================
-@@ -247,19 +247,19 @@ function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState('es');
-  const t = translations[language];
-
-  // ✅ Success Toast state and effect
-  const [showToast, setShowToast] = useState(false);
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
+  const [language, setLanguage] = useState("en");
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('sent') === '1') {
-      setShowToast(true);
-      // Remove ?sent=1 from URL
-      // Remove ?sent=1 from URL (works on localhost & prod)
-      if (window.history.replaceState) {
-        const cleanUrl = window.location.pathname + window.location.hash;
-        window.history.replaceState({}, document.title, cleanUrl);
-      }
-      // Auto-hide after 5s
-      const timer = setTimeout(() => setShowToast(false), 5000);
-      return () => clearTimeout(timer);
-    }
-@@ -476,7 +476,7 @@ function App() {
-            </h2>
-          </div>
+    document.body.setAttribute("data-bs-theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
 
-          {/* Simple custom tabs (no JS deps) */}
-          {/* Simple columns */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Ops */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all">
-@@ -674,62 +674,67 @@ function App() {
-              </div>
-            </div>
+  const t = (en, es) => (language === "en" ? en : es);
 
-            {/* Form (static) */}
-            {/* Form (Formspree) */}
-            <div className="bg-gray-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">{t.contact.form.title}</h3>
-<form
-  className="space-y-6"
-  action="https://formspree.io/f/mblpvwze"
-  method="POST"
->
-  <input type="text" name="_gotcha" className="hidden" tabIndex="-1" autoComplete="off" />
-
-  <input
-    type="text"
-    name="name"
-    required
-    placeholder={t.contact.form.namePlaceholder}
-    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent"
-  />
-  <input
-    type="email"
-    name="email"
-    required
-    placeholder={t.contact.form.emailPlaceholder}
-    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent"
-  />
-  <input
-    type="text"
-    name="company"
-    placeholder={t.contact.form.companyPlaceholder}
-    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent"
-  />
-  <input
-    type="tel"
-    name="phone"
-    placeholder={t.contact.form.phonePlaceholder}
-    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent"
-  />
-  <textarea
-    rows="4"
-    name="message"
-    required
-    placeholder={t.contact.form.messagePlaceholder}
-    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent"
-  ></textarea>
-
-  <input type="hidden" name="_subject" value="New consultation request from dataurea.com" />
-  <input type="hidden" name="_next" value="https://www.dataurea.com/?sent=1" />
-
-  <button
-    type="submit"
-    className="w-full bg-golden-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-golden-600 transition-colors"
-  >
-    {t.contact.form.submit}
-  </button>
-</form>
-
-          
-              <form
-                className="space-y-6"
-                action="https://formspree.io/f/mblpvwze"
-                method="POST"
-              >
-                {/* Honeypot anti-spam */}
-                <input type="text" name="_gotcha" className="hidden" tabIndex="-1" autoComplete="off" />
-
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  autoComplete="name"
-                  placeholder={t.contact.form.namePlaceholder}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  autoComplete="email"
-                  placeholder={t.contact.form.emailPlaceholder}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent"
-                />
-                <input
-                  type="text"
-                  name="company"
-                  autoComplete="organization"
-                  placeholder={t.contact.form.companyPlaceholder}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent"
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  autoComplete="tel"
-                  placeholder={t.contact.form.phonePlaceholder}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent"
-                />
-                <textarea
-                  rows="4"
-                  name="message"
-                  required
-                  placeholder={t.contact.form.messagePlaceholder}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-500 focus:border-transparent"
-                ></textarea>
-
-                {/* Email subject & redirect back with success flag */}
-                <input type="hidden" name="_subject" value="New consultation request from dataurea.com" />
-                <input type="hidden" name="_next" value="/?sent=1" />
-
-                <button
-                  type="submit"
-                  className="w-full bg-golden-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-golden-600 transition-colors"
-                  onClick={(e) => { e.currentTarget.disabled = true; }}
-                >
-                  {t.contact.form.submit}
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-@@ -800,32 +805,32 @@ function App() {
-          </div>
-        </div>
-      </footer>
-         {/* ✅ Success Toast */}
-{showToast && (
-  <div className="fixed bottom-6 right-6 z-[9999]">
-    <div className="flex items-start gap-3 rounded-xl bg-white shadow-2xl border border-green-200 p-4 w-[320px]">
-      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-100">
-        <svg className="h-5 w-5 text-green-600" viewBox="0 0 20 20" fill="currentColor">
-          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0L3.293 10.12a1 1 0 111.414-1.414L8 12l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-        </svg>
-      </div>
-      <div className="flex-1">
-        <p className="font-semibold text-gray-900">Message sent</p>
-        <p className="text-sm text-gray-600">Thanks! We’ll get back to you shortly.</p>
-      </div>
-      <button
-        onClick={() => setShowToast(false)}
-        aria-label="Close"
-        className="text-gray-400 hover:text-gray-600"
+  return (
+    <div className={`app ${darkMode ? "bg-dark text-light" : "bg-light text-dark"}`}>
+      {/* ===== Navbar ===== */}
+      <nav
+        className={`navbar navbar-expand-lg fixed-top ${
+          darkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"
+        } shadow-sm`}
       >
-        <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path fillRule="evenodd" d="M10 8.586l4.95-4.95 1.414 1.415L11.414 10l4.95 4.95-1.414 1.414L10 11.414l-4.95 4.95-1.414-1.415L8.586 10 3.636 5.05l1.414-1.414L10 8.586z" clipRule="evenodd" />
-        </svg>
-      </button>
-    </div>
-  </div>
-)}
-            
+        <div className="container">
+          <a className="navbar-brand fw-bold fs-4" href="#hero">
+            Dataúrea
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
 
-      {/* ✅ Success Toast */}
-      {showToast && (
-        <div className="fixed bottom-6 right-6 z-[9999]">
-          <div className="flex items-start gap-3 rounded-xl bg-white shadow-2xl border border-green-200 p-4 w-[320px]">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-100">
-              <svg className="h-5 w-5 text-green-600" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0L3.293 10.12a1 1 0 111.414-1.414L8 12l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-            </div>
-            <div className="flex-1">
-              <p className="font-semibold text-gray-900">Message sent</p>
-              <p className="text-sm text-gray-600">Thanks! We’ll get back to you shortly.</p>
-            </div>
-            <button
-              onClick={() => setShowToast(false)}
-              aria-label="Close"
-              className="text-gray-400 hover:text-gray-600"
-            >
-              <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 8.586l4.95-4.95 1.414 1.415L11.414 10l4.95 4.95-1.414 1.414L10 11.414l-4.95 4.95-1.414-1.415L8.586 10 3.636 5.05l1.414-1.414L10 8.586z" clipRule="evenodd" />
-              </svg>
-            </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+              <li className="nav-item">
+                <a className="nav-link" href="#about">
+                  {t("About", "Nosotros")}
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#services">
+                  {t("Services", "Servicios")}
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#contact">
+                  {t("Contact", "Contacto")}
+                </a>
+              </li>
+              <li className="nav-item d-flex align-items-center mx-2">
+                <button
+                  className="btn btn-sm btn-outline-secondary"
+                  onClick={() => setDarkMode(!darkMode)}
+                  title={t("Toggle dark mode", "Cambiar modo oscuro")}
+                >
+                  {darkMode ? <FaSun /> : <FaMoon />}
+                </button>
+              </li>
+              <li className="nav-item">
+                <button
+                  className="btn btn-sm btn-outline-primary"
+                  onClick={() => setLanguage(language === "en" ? "es" : "en")}
+                >
+                  {language === "en" ? "ES" : "EN"}
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
-      )}
+      </nav>
+
+      {/* ===== Hero Section ===== */}
+      <section
+        id="hero"
+        className="d-flex align-items-center justify-content-center text-center vh-100"
+        style={{
+          background:
+            darkMode
+              ? "linear-gradient(135deg, #1b1b1b, #2d2e82)"
+              : "linear-gradient(135deg, #ffffff, #e6e9ff)",
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="container"
+        >
+          <h1 className="display-4 fw-bold mb-3">
+            {t("Visual Strategy Consulting for Smarter Decisions", "Consultoría de Estrategia Visual para Decisiones Inteligentes")}
+          </h1>
+          <p className="lead mb-4">
+            {t(
+              "We turn complex data into clear, executive-ready insights.",
+              "Convertimos datos complejos en información clara y lista para ejecutivos."
+            )}
+          </p>
+          <a href="#services" className="btn btn-primary btn-lg px-4">
+            {t("Explore Services", "Explorar Servicios")}
+          </a>
+        </motion.div>
+      </section>
+
+      {/* ===== About Section ===== */}
+      <section id="about" className="py-5">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="fw-bold mb-4 text-center">
+              {t("About Us", "Sobre Nosotros")}
+            </h2>
+            <p className="fs-5 text-center mx-auto" style={{ maxWidth: "800px" }}>
+              {t(
+                "Dataúrea provides Business Intelligence solutions that empower healthcare organizations, financial firms, and government agencies to make faster, smarter, data-driven decisions.",
+                "Dataúrea ofrece soluciones de Inteligencia de Negocios que empoderan a organizaciones de salud, empresas financieras y agencias gubernamentales a tomar decisiones más rápidas e inteligentes basadas en datos."
+              )}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ===== Services Section ===== */}
+      <section id="services" className={`py-5 ${darkMode ? "bg-secondary bg-opacity-10" : "bg-light"}`}>
+        <div className="container">
+          <h2 className="fw-bold mb-5 text-center">
+            {t("Our Services", "Nuestros Servicios")}
+          </h2>
+          <div className="row g-4">
+            {[
+              {
+                title: t("Data Visualization & Dashboards", "Visualización de Datos y Dashboards"),
+                text: t(
+                  "Interactive BI dashboards that reveal trends and drive better decisions.",
+                  "Dashboards interactivos que revelan tendencias y ayudan a tomar mejores decisiones."
+                ),
+              },
+              {
+                title: t("Process Automation", "Automatización de Procesos"),
+                text: t(
+                  "Streamline workflows with custom automations that save time and reduce errors.",
+                  "Optimiza flujos de trabajo con automatizaciones personalizadas que ahorran tiempo y reducen errores."
+                ),
+              },
+              {
+                title: t("Data Strategy & Governance", "Estrategia y Gobernanza de Datos"),
+                text: t(
+                  "Build strong foundations for secure, compliant, and scalable data use.",
+                  "Crea bases sólidas para un uso de datos seguro, escalable y en cumplimiento normativo."
+                ),
+              },
+            ].map((s, i) => (
+              <motion.div
+                key={i}
+                className="col-md-4"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className={`card h-100 border-0 shadow-sm rounded-4 ${darkMode ? "bg-dark text-light" : ""}`}>
+                  <div className="card-body text-center p-4">
+                    <h5 className="fw-bold mb-3">{s.title}</h5>
+                    <p className="text-muted">{s.text}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Contact Section ===== */}
+      <section id="contact" className="py-5 text-center">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="fw-bold mb-4">{t("Contact Us", "Contáctanos")}</h2>
+            <p className="fs-5 mb-4">
+              {t(
+                "Let’s discuss how Dataúrea can transform your data strategy.",
+                "Hablemos sobre cómo Dataúrea puede transformar tu estrategia de datos."
+              )}
+            </p>
+
+            <div className="d-flex justify-content-center gap-3">
+              <a
+                href="mailto:info@dataurea.com"
+                className="btn btn-outline-primary"
+              >
+                <FaEnvelope className="me-2" /> info@dataurea.com
+              </a>
+              <a
+                href="https://linkedin.com/company/dataurea"
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-outline-secondary"
+              >
+                <FaLinkedin className="me-2" /> LinkedIn
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ===== Footer ===== */}
+      <footer
+        className={`text-center py-3 mt-5 ${darkMode ? "bg-dark text-light" : "bg-light text-muted"}`}
+      >
+        <p className="mb-0">
+          © {new Date().getFullYear()} Dataúrea — {t("All rights reserved.", "Todos los derechos reservados.")}
+        </p>
+      </footer>
     </div>
   );
 }
+
+export default App;
