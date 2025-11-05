@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import ThankYou from "./ThankYou";
 
 /* =========================================================
    TRANSLATIONS (Spanish + English)
@@ -229,45 +231,49 @@ function App() {
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) section.scrollIntoView({ behavior: "smooth" });
-  };
+  };return (
+  <Routes>
+    {/* 🏠 Main Website Route */}
+    <Route
+      path="/"
+      element={
+        <div className="App font-sans scroll-smooth">
+          {/* ================= NAVBAR ================= */}
+          <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-lg border-b border-gray-200 z-50">
+            <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
+              <span className="text-2xl font-bold text-golden-600">DATÁUREA</span>
 
-  return (
-    <div className="App font-sans scroll-smooth">
-      {/* ================= NAVBAR ================= */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-lg border-b border-gray-200 z-50">
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
-          <span className="text-2xl font-bold text-golden-600">DATÁUREA</span>
+              {/* Desktop Menu */}
+              <div className="hidden md:flex items-center space-x-6">
+                {Object.entries(t.nav).map(([key, label]) => (
+                  <button
+                    key={key}
+                    onClick={() => scrollToSection(key)}
+                    className="hover:text-golden-600 font-medium transition-colors"
+                  >
+                    {label}
+                  </button>
+                ))}
+                <button
+                  onClick={() => setLanguage(language === "es" ? "en" : "es")}
+                  className="px-3 py-1 border border-gray-300 rounded-lg text-sm hover:border-golden-500 transition"
+                >
+                  {language === "es" ? "EN" : "ES"}
+                </button>
+              </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6">
-            {Object.entries(t.nav).map(([key, label]) => (
-              <button
-                key={key}
-                onClick={() => scrollToSection(key)}
-                className="hover:text-golden-600 font-medium transition-colors"
-              >
-                {label}
-              </button>
-            ))}
-            <button
-              onClick={() => setLanguage(language === "es" ? "en" : "es")}
-              className="px-3 py-1 border border-gray-300 rounded-lg text-sm hover:border-golden-500 transition"
-            >
-              {language === "es" ? "EN" : "ES"}
-            </button>
-          </div>
+              {/* Mobile Toggle */}
+              <div className="md:hidden">
+                <button
+                  onClick={() => setLanguage(language === "es" ? "en" : "es")}
+                  className="px-3 py-1 border border-gray-300 rounded-lg text-sm hover:border-golden-500 transition"
+                >
+                  {language === "es" ? "EN" : "ES"}
+                </button>
+              </div>
+            </div>
+          </nav>
 
-          {/* Mobile Toggle (always visible) */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setLanguage(language === "es" ? "en" : "es")}
-              className="px-3 py-1 border border-gray-300 rounded-lg text-sm hover:border-golden-500 transition"
-            >
-              {language === "es" ? "EN" : "ES"}
-            </button>
-          </div>
-        </div>
-      </nav>
 
       {/* ================= HERO SECTION ================= */}
       <section
@@ -698,6 +704,9 @@ function App() {
         </div>
       </footer>
     </div>
+    {/* Thank You Page (separate route, not inside Hero) */}
+    <Route path="/thank-you" element={<ThankYou />} />
+  </Routes>
   );
 }
 
