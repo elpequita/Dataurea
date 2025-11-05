@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import "./App.css";
@@ -33,21 +33,9 @@ const translations = {
       subtitle:
         "Soluciones integrales de Business Intelligence adaptadas a empresas puertorriqueñas.",
       list: [
-        {
-          icon: "📊",
-          title: "Análisis de Datos",
-          desc: "Transformamos datos complejos en información útil para la toma de decisiones estratégicas.",
-        },
-        {
-          icon: "⚙️",
-          title: "Automatización de Procesos",
-          desc: "Implementamos flujos de trabajo inteligentes para optimizar tus operaciones.",
-        },
-        {
-          icon: "🧭",
-          title: "Consultoría Estratégica",
-          desc: "Definimos e implementamos estrategias basadas en datos para tu crecimiento.",
-        },
+        { icon: "📊", title: "Análisis de Datos", desc: "Transformamos datos complejos en información útil para la toma de decisiones estratégicas." },
+        { icon: "⚙️", title: "Automatización de Procesos", desc: "Implementamos flujos de trabajo inteligentes para optimizar tus operaciones." },
+        { icon: "🧭", title: "Consultoría Estratégica", desc: "Definimos e implementamos estrategias basadas en datos para tu crecimiento." },
       ],
     },
     about: {
@@ -77,19 +65,18 @@ const translations = {
     },
     testimonials: {
       title: "Qué Dicen Nuestros Clientes",
-      subtitle:
-        "Resultados reales y medibles de nuestras implementaciones BI.",
+      subtitle: "Resultados reales y medibles de nuestras implementaciones BI.",
       list: [
         {
-          text: "“Dataúrea redujo el tiempo de nuestros reportes en un 70% con automatización inteligente.”",
+          text: "Dataúrea redujo el tiempo de nuestros reportes en un 70% con automatización inteligente.",
           author: "Director de Operaciones, Cliente Salud",
         },
         {
-          text: "“Nuestros dashboards ahora cuentan historias. Las decisiones son más rápidas y confiables.”",
+          text: "Nuestros dashboards ahora cuentan historias. Las decisiones son más rápidas y confiables.",
           author: "Gerente Financiero",
         },
         {
-          text: "“Su acompañamiento transformó nuestra cultura de datos en menos de tres meses.”",
+          text: "Su acompañamiento transformó nuestra cultura de datos en menos de tres meses.",
           author: "CEO, Empresa Tecnológica",
         },
       ],
@@ -99,22 +86,10 @@ const translations = {
       subtitle:
         "Un proceso diseñado para convertir tus datos en resultados tangibles.",
       steps: [
-        {
-          title: "Descubrimiento",
-          desc: "Analizamos tus metas, retos y oportunidades de datos.",
-        },
-        {
-          title: "Modelado de Datos",
-          desc: "Diseñamos estructuras limpias, escalables y eficientes.",
-        },
-        {
-          title: "Implementación y Automatización",
-          desc: "Construimos dashboards y flujos automatizados.",
-        },
-        {
-          title: "Entrenamiento y Soporte",
-          desc: "Acompañamos a tu equipo para garantizar adopción y éxito.",
-        },
+        { title: "Descubrimiento", desc: "Analizamos tus metas, retos y oportunidades de datos." },
+        { title: "Modelado de Datos", desc: "Diseñamos estructuras limpias, escalables y eficientes." },
+        { title: "Implementación y Automatización", desc: "Construimos dashboards y flujos automatizados." },
+        { title: "Entrenamiento y Soporte", desc: "Acompañamos a tu equipo para garantizar adopción y éxito." },
       ],
     },
     contact: {
@@ -134,8 +109,7 @@ const translations = {
       },
     },
     footer: {
-      tagline:
-        "Datáurea — transformando datos en decisiones inteligentes para Puerto Rico.",
+      tagline: "Datáurea — transformando datos en decisiones inteligentes para Puerto Rico.",
       copyright: "Todos los derechos reservados.",
     },
   },
@@ -165,21 +139,9 @@ const translations = {
       subtitle:
         "Comprehensive BI and automation solutions designed for modern businesses.",
       list: [
-        {
-          icon: "📊",
-          title: "Data Analysis",
-          desc: "Transforming raw data into actionable insights for better decision-making.",
-        },
-        {
-          icon: "⚙️",
-          title: "Process Automation",
-          desc: "We build intelligent workflows to optimize daily operations.",
-        },
-        {
-          icon: "🧭",
-          title: "Strategic Consulting",
-          desc: "Helping you define and implement a data-driven roadmap for growth.",
-        },
+        { icon: "📊", title: "Data Analysis", desc: "Transforming raw data into actionable insights for better decision-making." },
+        { icon: "⚙️", title: "Process Automation", desc: "We build intelligent workflows to optimize daily operations." },
+        { icon: "🧭", title: "Strategic Consulting", desc: "Helping you define and implement a data-driven roadmap for growth." },
       ],
     },
     about: {
@@ -209,21 +171,11 @@ const translations = {
     },
     testimonials: {
       title: "What Clients Say",
-      subtitle:
-        "Real stories of measurable impact achieved with Dataúrea.",
+      subtitle: "Real stories of measurable impact achieved with Dataúrea.",
       list: [
-        {
-          text: "“Dataúrea helped us automate reporting and reduce manual work by 70%.”",
-          author: "Operations Director, Healthcare Client",
-        },
-        {
-          text: "“Our dashboards now tell a story. Decision-making has never been faster.”",
-          author: "Finance Manager",
-        },
-        {
-          text: "“They guided our data transformation from start to success.”",
-          author: "CEO, Tech Company",
-        },
+        { text: "Dataúrea helped us automate reporting and reduce manual work by 70%.", author: "Operations Director, Healthcare Client" },
+        { text: "Our dashboards now tell a story. Decision-making has never been faster.", author: "Finance Manager" },
+        { text: "They guided our data transformation from start to success.", author: "CEO, Tech Company" },
       ],
     },
     process: {
@@ -231,22 +183,10 @@ const translations = {
       subtitle:
         "A structured process to ensure every project turns data into outcomes.",
       steps: [
-        {
-          title: "Discovery",
-          desc: "We identify your goals, data sources, and business challenges.",
-        },
-        {
-          title: "Modeling",
-          desc: "We clean, organize, and model your data for scalability.",
-        },
-        {
-          title: "Implementation",
-          desc: "We build visual dashboards and automation flows.",
-        },
-        {
-          title: "Training & Support",
-          desc: "We train your team and provide continuous improvement.",
-        },
+        { title: "Discovery", desc: "We identify your goals, data sources, and business challenges." },
+        { title: "Modeling", desc: "We clean, organize, and model your data for scalability." },
+        { title: "Implementation", desc: "We build visual dashboards and automation flows." },
+        { title: "Training & Support", desc: "We train your team and provide continuous improvement." },
       ],
     },
     contact: {
@@ -266,8 +206,7 @@ const translations = {
       },
     },
     footer: {
-      tagline:
-        "Datáurea — empowering business decisions with intelligence and precision.",
+      tagline: "Datáurea — empowering business decisions with intelligence and precision.",
       copyright: "All rights reserved.",
     },
   },
@@ -278,7 +217,13 @@ const translations = {
    ========================================================= */
 
 function App() {
-  const [language, setLanguage] = useState("es");
+  // 🌐 Language toggle with persistence
+  const [language, setLanguage] = useState(() => localStorage.getItem("lang") || "es");
+
+  useEffect(() => {
+    localStorage.setItem("lang", language);
+  }, [language]);
+
   const t = translations[language];
 
   const scrollToSection = (id) => {
@@ -293,6 +238,7 @@ function App() {
         <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
           <span className="text-2xl font-bold text-golden-600">DATÁUREA</span>
 
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
             {Object.entries(t.nav).map(([key, label]) => (
               <button
@@ -303,6 +249,16 @@ function App() {
                 {label}
               </button>
             ))}
+            <button
+              onClick={() => setLanguage(language === "es" ? "en" : "es")}
+              className="px-3 py-1 border border-gray-300 rounded-lg text-sm hover:border-golden-500 transition"
+            >
+              {language === "es" ? "EN" : "ES"}
+            </button>
+          </div>
+
+          {/* Mobile Toggle (always visible) */}
+          <div className="md:hidden">
             <button
               onClick={() => setLanguage(language === "es" ? "en" : "es")}
               className="px-3 py-1 border border-gray-300 rounded-lg text-sm hover:border-golden-500 transition"
