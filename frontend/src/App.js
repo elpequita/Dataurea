@@ -232,8 +232,8 @@ function App() {
     const section = document.getElementById(id);
     if (section) section.scrollIntoView({ behavior: "smooth" });
   };return (
+return (
   <Routes>
-    {/* 🏠 Main Website Route */}
     <Route
       path="/"
       element={
@@ -703,11 +703,12 @@ function App() {
           </p>
         </div>
       </footer>
-    </div>
-    {/* Thank You Page (separate route, not inside Hero) */}
+        </div>
+      }
+    />
     <Route path="/thank-you" element={<ThankYou />} />
   </Routes>
-  );
-}
+);
+
 
 export default App;
