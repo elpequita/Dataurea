@@ -607,26 +607,26 @@ function App() {
             </h3>
 <form
   onSubmit={async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const payload = Object.fromEntries(formData.entries());
-    try {
-      const res = await fetch("https://formspree.io/f/mblpvwze", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-     if (res.ok) {
-  window.location.href = "/thank-you";
-}
-      } else {
-        alert("There was an issue sending your message. Please try again.");
-      }
-    } catch (err) {
-      console.error("Form submission error:", err);
-      alert("Unable to send the form. Please check your connection.");
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const payload = Object.fromEntries(formData.entries());
+  try {
+    const res = await fetch("https://formspree.io/f/mblpvwze", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (res.ok) {
+      window.location.href = "/thank-you";
+    } else {
+      alert("There was an issue sending your message. Please try again.");
     }
-  }}
+  } catch (err) {
+    console.error("Form submission error:", err);
+    alert("Unable to send the form. Please check your connection.");
+  }
+}}
+
   className="space-y-4"
 >
   <div className="grid md:grid-cols-2 gap-4">
