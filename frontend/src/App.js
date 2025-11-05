@@ -616,11 +616,9 @@ function App() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      if (res.ok) {
-        e.target.reset();
-        const box = document.getElementById("success-box");
-        box.classList.remove("hidden");
-        setTimeout(() => box.classList.add("hidden"), 4000);
+     if (res.ok) {
+  window.location.href = "/thank-you";
+}
       } else {
         alert("There was an issue sending your message. Please try again.");
       }
