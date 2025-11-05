@@ -228,12 +228,14 @@ function App() {
 
   const t = translations[language];
 
-  const scrollToSection = (id) => {
+   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) section.scrollIntoView({ behavior: "smooth" });
   };
-return (
-  <Routes>
+
+  return (
+    <Routes>
+
     <Route
       path="/"
       element={
